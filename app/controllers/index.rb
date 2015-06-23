@@ -1,5 +1,4 @@
 get '/' do
-
   erb :index
 end
 
@@ -10,11 +9,12 @@ get '/sessions/new' do
 end
 
 post '/sessions' do
-  session[:user_id] = params[:name]
+  session[:user_id] = User.find(name: params[:name]).id
+  redirect '/'
 end
 
 delete '/sessions/:id' do
-  # sign-out -- invoked
+  session[:user_id] = nil
 end
 
 #----------- USERS -----------
@@ -31,4 +31,5 @@ post '/users' do
   )
 
   session[:user_id] = User.find(name: params[:name]).id
+  redirect '/'
 end
