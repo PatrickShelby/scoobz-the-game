@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/css/mycss.css">
+
+</head>
+<body>
+
+ <div class='container'>
+ </div>
+ <div id="login">
+
+  <button> <a href="/sessions/new"> Sign In </a></button>
+
+
+  <button> <a href="/users/new"> Sign Up </a></button>
+</div>
+</body>
+</html>
+
+
+
+<div> Welcome to DBC-bay </div>
+<br>
+<br>
+<% if current_user %>
+<div> Welcome back <%= User.where(id: session[:user_id]).first.username.upcase %> </div>
+<form action="/profile" class="signup">
+  <input type="submit" value="My Profile">
+</form>
+
+<form action="/sessions/:id" method="post" class="signup">
+  <input name="_method" type="hidden" value="delete" />
+  <input type="submit" value="Log Out">
+</form>
+
+
+<% else %>
+
+<form action="/users/signup" class="signup">
+  <input type="submit" value="Register a new user">
+</form>
+
+<form action="/sessions/new" class="signup">
+  <input type="submit" value="Log In">
+</form>
+<% end %>

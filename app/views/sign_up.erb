@@ -1,6 +1,17 @@
- <form method="post" action="/sessions">
-    <p><input type="text" name="name" value="" placeholder="Username"></p>
-    <p><input type="text" name="email" value="" placeholder="Email"></p>
-    <p><input type="password" name="password" value="" placeholder="Password"></p>
-    <p class="submit"><input type="submit" name="commit" value="Login"></p>
+<div class="container">
+  <h1>Sign Up</h1>
+
+  <form id="sign-up" method="post" action="/users">
+
+    <label class="label" for="username">Username</label>
+    <input type="text" name="username" placeholder="e.g., joe" >
+    <br>
+
+    <label class="label" for="password">Password</label>d
+    <input type="text" name="password" placeholder="6 or more characters">
+    <br>
+
+    <div class="submit"><input type="submit" value="Sign Up"></div>
   </form>
+
+</div>
